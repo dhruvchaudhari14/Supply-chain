@@ -6,7 +6,6 @@
 import streamlit 
 import pandas as pd
 import numpy as np
-pip install pulp
 from pulp import *
 import matplotlib.pyplot as plt
 import random
