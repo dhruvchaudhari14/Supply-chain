@@ -301,7 +301,7 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[0].write("Optimal Warehouse to Market routes and quantity")
         cols[0].write(results)
         cols[1].write("Additional Data")
-        
+        cols_2[1].write(df)
         
         results = results.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
