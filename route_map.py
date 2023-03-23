@@ -1,14 +1,14 @@
 import warnings
 
 
-pip! install pulp
+import pulp
 import pandas as pd
 import numpy as np
 from pulp import *
 import matplotlib.pyplot as plt
 import random
 random.seed(1447)
-import pulp
+
 import streamlit as st
 warnings.filterwarnings("ignore")
 
