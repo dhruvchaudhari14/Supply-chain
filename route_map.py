@@ -303,9 +303,9 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write("Additional Data")
         
         
-results = results.to_csv(index=False).encode("utf-8")
-st.write("Click to download results from the above iteration in csv format")
-st.download_button('Download', results, 'Iteration_1_results.csv', 'csv/txt')
+        results = results.to_csv(index=False).encode("utf-8")
+        st.write("Click to download results from the above iteration in csv format")
+        st.download_button('Download', results, 'Iteration_1_results.csv', 'csv/txt')
 
 
 
@@ -428,9 +428,9 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
 
             
             
-results_3= results_3.to_csv(index=False).encode("utf-8")
-st.write("Click to download results from the above iteration in csv format")
-st.download_button('Download', results_3, 'Iteration_3_results.csv', 'csv/txt')
+        results_3= results_3.to_csv(index=False).encode("utf-8")
+        st.write("Click to download results from the above iteration in csv format")
+        st.download_button('Download', results_3, 'Iteration_3_results.csv', 'csv/txt')
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
