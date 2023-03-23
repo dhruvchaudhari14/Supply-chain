@@ -66,6 +66,7 @@ if file is not None:
 
         if sheet_names is not None:
             transport_costs = pd.read_excel(file, sheet_name=sheet_names[0], index_col=0)
+            transport_costs = round(transport_costs,2)
             cap = pd.read_excel(file, sheet_name=sheet_names[1], index_col=0)
             demand = pd.read_excel(file, sheet_name=sheet_names[2], index_col=0)
             lead_time = pd.read_excel(file, sheet_name=sheet_names[3], index_col=0)
