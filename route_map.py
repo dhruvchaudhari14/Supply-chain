@@ -304,7 +304,7 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write(df)
         
 
-    st.download_button('Download CSV', results, 'Iteration_1.csv', 'text/csv')
+        st.download_button('Download CSV', results, 'Iteration_1.csv', 'text/csv')
 
 
 
