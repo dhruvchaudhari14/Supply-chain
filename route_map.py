@@ -303,18 +303,8 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write("Additional Data")
         cols[1].write(df)
         
-    if st.checkbox("Export data to Excel"):
-        st.write("Please add .xlsx extension")
-        filename = st.text_input("Enter a filename","")
-            
-            
-        if filename:
-            
-                # Export the data to Excel
-            results.to_excel(filename, index=False)
 
-                # Display a success message
-            st.success(f"Data exported to {filename}!")
+    st.download_button('Download CSV', text_contents, 'aaa.csv', 'text/csv')
 
 
 
