@@ -215,7 +215,7 @@ if tab == "Optimal Solution without capacity constraints.":
     run_code = st.checkbox("Run Iteration 1: Without Capacity Constraints")
 
     if run_code:
-        prob = pulp.LpProblem("Minimize Transportation Costs and Lead Time", pulp.LpMinimize)
+        prob = pulp.LpProblem("Minimize Transportation Costs and Lead Time", LpMinimize)
 
         route_name = [(i,j) for i in warehouses for j in markets] 
 
@@ -332,7 +332,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
 
     if run_code:
 
-        prob_3 = pulp.LpProblem("Minimize Transportation Costs and Lead Time", pulp.LpMinimize)
+        prob_3 = pulp.LpProblem("Minimize Transportation Costs and Lead Time", LpMinimize)
 
         route_name = [(i,j) for i in warehouses for j in markets] 
 
