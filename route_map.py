@@ -46,7 +46,7 @@ def add_bg_from_url():
      )
 
 add_bg_from_url()
-
+st.title('Supply Chain Netwrok Optimization') 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
 st.sidebar.title("Upload data")
