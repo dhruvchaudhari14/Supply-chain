@@ -105,48 +105,52 @@ if file is not None:
                 
 else:
     # Read Excel file
-        file = "Data_Route_Mapping.xlsx"
-        excel_data = pd.ExcelFile(file)
-        sheet_names = excel_data.sheet_names
-        st.sidebar.write("Sheet Names in the file:", sheet_names)
+        show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
+        if show_def:
+            
+            
+            file = "Data_Route_Mapping.xlsx"
+            excel_data = pd.ExcelFile(file)
+            sheet_names = excel_data.sheet_names
+            st.sidebar.write("Sheet Names in the file:", sheet_names)
 
-        if sheet_names is not None:
-            transport_costs = pd.read_excel(file, sheet_name=sheet_names[0], index_col=0)
-            transport_costs = round(transport_costs,2)
-            cap = pd.read_excel(file, sheet_name=sheet_names[1], index_col=0)
-            demand = pd.read_excel(file, sheet_name=sheet_names[2], index_col=0)
-            lead_time = pd.read_excel(file, sheet_name=sheet_names[3], index_col=0)
-            fixed_data = pd.read_excel(file, sheet_name=sheet_names[4])
-            markets = demand.index.tolist()
-            warehouses = cap.index.tolist()
-        if tab == "Data":
-            st.write("This is the data section where you can view all the data used by the optimization algorithms.")
-            show_data = st.checkbox("Show Transportation Costs",key = "transport")
-            if show_data:
-                st.header("Transport Costs")
-                st.write("This shows transportation costs from warehouse to markets in $")
-                st.write(transport_costs)
-            show_data_cap = st.checkbox("Show Capacity for Warehouses",key = "wh")            
-            if show_data_cap:
-                st.header("Capacity for Warehouses")
-                st.write("This shows capacity of each warehouse in units/month.")
-                st.write(cap)
-            show_data_demand = st.checkbox("Show Demand Data",key = "demand")
-            if show_data_demand:
-                st.header("Demand Data")
-                st.write("This shows Demand of each market in a week.")
-                st.write(demand)
-            show_data_lt = st.checkbox("Show Lead Time Data",key = "lt")
-            if show_data_lt:
-                st.header("Lead Time data")
-                st.write("This shows time in days from warehouse to market to transport goods.")
-                st.write(lead_time)
-                
-            show_data_f_m_c = st.checkbox("Show Fixed Warehouse to Market Link",key = "fixed_data")
-            if show_data_f_m_c:
-                st.header("Fixed Warehouse to Market Link")
-                st.write("This shows if there are any warehouses assigned to specific markets.")
-                st.write(fixed_data)
+            if sheet_names is not None:
+                transport_costs = pd.read_excel(file, sheet_name=sheet_names[0], index_col=0)
+                transport_costs = round(transport_costs,2)
+                cap = pd.read_excel(file, sheet_name=sheet_names[1], index_col=0)
+                demand = pd.read_excel(file, sheet_name=sheet_names[2], index_col=0)
+                lead_time = pd.read_excel(file, sheet_name=sheet_names[3], index_col=0)
+                fixed_data = pd.read_excel(file, sheet_name=sheet_names[4])
+                markets = demand.index.tolist()
+                warehouses = cap.index.tolist()
+            if tab == "Data":
+                st.write("This is the data section where you can view all the data used by the optimization algorithms.")
+                show_data = st.checkbox("Show Transportation Costs",key = "transport")
+                if show_data:
+                    st.header("Transport Costs")
+                    st.write("This shows transportation costs from warehouse to markets in $")
+                    st.write(transport_costs)
+                show_data_cap = st.checkbox("Show Capacity for Warehouses",key = "wh")            
+                if show_data_cap:
+                    st.header("Capacity for Warehouses")
+                    st.write("This shows capacity of each warehouse in units/month.")
+                    st.write(cap)
+                show_data_demand = st.checkbox("Show Demand Data",key = "demand")
+                if show_data_demand:
+                    st.header("Demand Data")
+                    st.write("This shows Demand of each market in a week.")
+                    st.write(demand)
+                show_data_lt = st.checkbox("Show Lead Time Data",key = "lt")
+                if show_data_lt:
+                    st.header("Lead Time data")
+                    st.write("This shows time in days from warehouse to market to transport goods.")
+                    st.write(lead_time)
+
+                show_data_f_m_c = st.checkbox("Show Fixed Warehouse to Market Link",key = "fixed_data")
+                if show_data_f_m_c:
+                    st.header("Fixed Warehouse to Market Link")
+                    st.write("This shows if there are any warehouses assigned to specific markets.")
+                    st.write(fixed_data)
 
                 
                 
