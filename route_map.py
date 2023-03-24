@@ -47,7 +47,7 @@ def add_bg_from_url():
 
 add_bg_from_url()
 st.title('Supply Chain Network Optimization') 
-
+show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
 # ----------------------------------------------------------------------------------------------------------------------------------------
 st.sidebar.title("Upload data")
 
@@ -105,7 +105,7 @@ if file is not None:
                 
 else:
     # Read Excel file
-#         show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
+
         if show_def:
             
             
@@ -261,7 +261,6 @@ else:
 ### Iteration 1:without capacity constraint
 if tab == "Optimal Solution without capacity constraints.":
     st.write("In this section the optimization algorithm uses no constraint on warehouse capacity.")
-    show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
     show_fixed_data = st.checkbox("Consider Fixed Warehouse-Market Link",key = "fixed_data_f_m_c_1")
     st.write("By using this respective markets will only get demand fulfilled by a fixed warehouse.")             
     run_code = st.checkbox("Run Iteration 1: Without Capacity Constraints")
