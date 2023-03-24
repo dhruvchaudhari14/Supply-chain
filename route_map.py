@@ -23,7 +23,7 @@ import streamlit as st
 st.set_page_config(page_title="Route Mapping App", page_icon=":truck:", layout="wide", initial_sidebar_state="expanded")
 from PIL import Image
 
-image = Image.open('logo.jpg')
+image = Image.open('logo.png')
 st.sidebar.image(image, use_column_width=True)
 # st.image(image)
 
