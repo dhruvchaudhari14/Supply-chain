@@ -105,7 +105,7 @@ if file is not None:
                 
 else:
     # Read Excel file
-        show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
+#         show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
         if show_def:
             
             
