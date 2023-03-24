@@ -47,12 +47,13 @@ def add_bg_from_url():
 
 add_bg_from_url()
 st.title('Supply Chain Network Optimization') 
-show_def = st.checkbox("Use Default data",key = "data_Def")
+
 # ----------------------------------------------------------------------------------------------------------------------------------------
 st.sidebar.title("Upload data")
 
 # File uploader widget
 file = st.sidebar.file_uploader("Upload the data file", type=["xlsx", "xls"])
+show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
 sheet_names = []
 
 tabs = ["Data","Optimal Solution without capacity constraints.", "Optimal/Sub-Optimal Solution with capacity constraints."]
