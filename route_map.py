@@ -47,7 +47,7 @@ def add_bg_from_url():
 
 add_bg_from_url()
 st.title('Supply Chain Network Optimization') 
-show_def = st.sidebar.checkbox("Use Default data",key = "data_Def")
+show_def = st.checkbox("Use Default data",key = "data_Def")
 # ----------------------------------------------------------------------------------------------------------------------------------------
 st.sidebar.title("Upload data")
 
