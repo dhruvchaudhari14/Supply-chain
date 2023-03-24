@@ -105,7 +105,8 @@ if file is not None:
                 
 else:
     # Read Excel file
-        excel_data = pd.ExcelFile("Data_Route_Mapping.xlsx")
+        file = "Data_Route_Mapping.xlsx"
+        excel_data = pd.ExcelFile(file)
         sheet_names = excel_data.sheet_names
         st.sidebar.write("Sheet Names in the file:", sheet_names)
 
