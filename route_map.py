@@ -418,9 +418,23 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         prob_3.solve()
         #  Print the optimal solution
         st.write("Optimal Cost required: ",round(pulp.value(prob_3.objective),2))
-        st.write("Status: ",LpStatus[prob_3.status])
+        if LpStatus[prob_3.status]=="Optimal":
+            st.write("Status: ",LpStatus[prob_3.status])
         if LpStatus[prob_3.status]=="Infeasible":
-            st.write("The current Demand cannot be fulfilled due to insufficient capacity")
+            html_str = f"""
+                        <style>
+                        p.a {{
+                          font: bold {25}px Source Sans Pro;
+                        }}
+                        p.a {{
+                          color: red;
+                        }}
+                        </style>
+                        <p class="a">Status:{LpStatus[prob_3.status]}</p>
+                        <p class="a">At current capacity the solution is infeasible</p>
+                        """
+
+            st.markdown(html_str, unsafe_allow_html=True)
             
 
 
