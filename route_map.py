@@ -326,8 +326,7 @@ if tab == "Optimal Solution without capacity constraints.":
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
-        st.write("Optimal Cost required: ",round(pulp.value(prob.objective),2))
-        st.write("Status: ",LpStatus[prob.status])
+
         st.header("Optimal Warehouse to Market mapping")
 
 
