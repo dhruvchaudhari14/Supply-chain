@@ -446,12 +446,12 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         }}
                         </style>
                         <p class="b">Status:{LpStatus[prob_3.status]}</p>
-                        <p class="b">At current capacity the solution is infeasible with capacity shortfall of {abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}% </p>
+                        <p class="b">At current capacity the solution is infeasible.</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
             
-
+ 
 
         for j in sorted(markets, key=lambda j: -demand["Demand"].loc[j]):
             for i in warehouses:
@@ -509,6 +509,21 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
+        if LpStatus[prob_3.status]=="Optimal":
+            html_str = f"""
+                        <style>
+                        p.c {{
+                          font: bold {20}px Source Sans Pro;
+                        }}
+                        p.c {{
+                          color: red;
+                        }}
+                        </style>
+                        <p class="c">Status:Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
+                        """
+
+            st.markdown(html_str, unsafe_allow_html=True)
+        
 
 
         results_3= results_3.to_csv(index=False).encode("utf-8")
