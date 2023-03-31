@@ -419,7 +419,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         #  Print the optimal solution
         st.write("Optimal Cost required: ",round(pulp.value(prob_3.objective),2))
         st.write("Status: ",LpStatus[prob_3.status])
-        if LpStatus[prob_3.status]=="Infeasiable":
+        if LpStatus[prob_3.status]=="Infeasible":
             st.write("The current Demand cannot be fulfilled due to insufficient capacity")
             
 
@@ -480,7 +480,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
-        if LpStatus[prob_3.status]=="Infeasiable":
+        if LpStatus[prob_3.status]=="Infeasible":
             cols_2[1].write("The Capacity Shortfall (%) is :", (df_3['Remaining Capacity']/demand["Demand"].sum()))
             
         
