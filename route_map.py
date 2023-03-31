@@ -490,6 +490,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         <p class="a">{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}</p>
                         """
 
+            st.write("The Capacity Shortfall (in %)")
             st.markdown(html_str, unsafe_allow_html=True)
             
 
