@@ -366,7 +366,7 @@ if tab == "Optimal Solution without capacity constraints.":
 
 ###  Iteration 3: where from one warehouse complete demand of one market will be fulfilled.
 if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
-    st.write("In this section the optimization algorithm has capacity constraints along with the condition that demand for a market will be               fulfilled by on only one warehouse.")
+    st.write("In this section the optimization algorithm has capacity constraints along with the condition that demand for a market will be  fulfilled by one and only one warehouse.")
    
     show_fixed_data_1 = st.checkbox("Consider Fixed Warehouse-Market Link",key = "fixed_data_f_m_c_2")
     st.write("By using this respective markets will only get demand fulfilled by a fixed warehouse.") 
@@ -416,10 +416,26 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
 
 
         prob_3.solve()
+        st.write("Status: ",LpStatus[prob_3.status])
         #  Print the optimal solution
-        st.write("Optimal Cost required: ",round(pulp.value(prob_3.objective),2))
         if LpStatus[prob_3.status]=="Optimal":
+            html_str = f"""
+                        <style>
+                        p.c {{
+                          font: bold {20}px Source Sans Pro;
+                        }}
+                        p.c {{
+                          color: green;
+                        }}
+                        </style>
+                        <p class="c">Status:{LpStatus[prob_3.status]}</p>
+                        """
+
+            st.markdown(html_str, unsafe_allow_html=True)
+        else:
             st.write("Status: ",LpStatus[prob_3.status])
+            
+
         if LpStatus[prob_3.status]=="Infeasible":
             html_str = f"""
                         <style>
