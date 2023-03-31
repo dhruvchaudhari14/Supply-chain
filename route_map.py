@@ -373,9 +373,6 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write(df)
         
 
-
-        st.bar_chart(results,x = results["Warehouse"], y=results["Demand Fulfilled"])
-        
         results = results.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
         st.download_button('Download', results, 'Iteration_1_results.csv', 'csv/txt')
