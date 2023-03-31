@@ -372,7 +372,7 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write("Additional Data")
         cols[1].write(df)
         
-        market_counts = results_1.groupby('Warehouse')['Demand Fulfilled'].count()
+        market_counts = df.groupby('Warehouse')['Demand Fulfilled'].count()
 
         # Create a histogram of the market counts
         plt.hist(market_counts.values)
