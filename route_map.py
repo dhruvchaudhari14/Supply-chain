@@ -384,7 +384,7 @@ if tab == "Optimal Solution without capacity constraints.":
 
         # Show the histogram
         plt.show()
-        st.pyplot()
+        st.pyplot(plt)
         
         results = results.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
