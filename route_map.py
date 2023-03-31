@@ -305,12 +305,12 @@ if tab == "Optimal Solution without capacity constraints.":
                     print("x_{}{} = {}".format(i, j, x[(i,j)].value()))
         print("Total cost:", pulp.value(prob.objective))
         data= []
-        market_count = {}
+        
         for i in warehouses:
             for j in markets:
                 if x[(i,j)].value() != 0:
                     data.append([i, j, x[(i,j)].value()])
-                    market_count[i] = market_count.get(i, 0) + 1  # increment count of markets fulfilled by this warehouse
+                    
         results = pd.DataFrame(data, columns=['Warehouse', 'Route', 'Demand Fulfilled'])
         results['Demand Fulfilled'] = results['Demand Fulfilled'].round(0)
         if LpStatus[prob.status]=="Optimal":
@@ -359,10 +359,7 @@ if tab == "Optimal Solution without capacity constraints.":
         # Create DataFrame from results
         df = pd.DataFrame(results_1)
         
-        results_count_1 = pd.DataFrame.from_dict(market_count, columns=['Markets Fulfilled'])
-
-        # add results_2 DataFrame as a new column to df DataFrame
-        df = pd.concat([df, results_count_1], axis=1)
+        
 
 
         df.set_index('Warehouse', inplace=True)
