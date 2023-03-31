@@ -322,7 +322,7 @@ if tab == "Optimal Solution without capacity constraints.":
                         }}
                         </style>
                         <p class="d">Status : {LpStatus[prob.status]}</p>
-                        <p class="d">Total cost : {pulp.value(prob.objective)}</p>
+                        <p class="d">Total cost : {round(pulp.value(prob.objective))}</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
@@ -442,7 +442,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         }}
                         </style>
                         <p class="c">Status : {LpStatus[prob_3.status]}</p>
-                        <p class="c">Total cost : {pulp.value(prob_3.objective)}</p>
+                        <p class="c">Total cost : {round(pulp.value(prob_3.objective))}</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
