@@ -484,14 +484,15 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             html_str = f"""
                         <style>
                         p.a {{
-                          font: bold {40}px Courier;
+                          font: bold {40}px Times New Roman;
                         }}
+                        p.a    {color: red;}
                         </style>
                         <p class="a">{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
                         """
 
-            st.write("The Capacity Shortfall is ",html_str)
-            # st.markdown(html_str, unsafe_allow_html=True)
+            st.write("The Capacity Shortfall is ")
+            st.markdown(html_str, unsafe_allow_html=True)
             
 
         results_3= results_3.to_csv(index=False).encode("utf-8")
