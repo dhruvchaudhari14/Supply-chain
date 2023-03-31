@@ -372,19 +372,9 @@ if tab == "Optimal Solution without capacity constraints.":
         cols[1].write("Additional Data")
         cols[1].write(df)
         
-        market_counts = results.groupby('Warehouse')['Demand Fulfilled'].count()
 
-        # Create a histogram of the market counts
-        plt.hist(market_counts.values)
 
-        # Add labels and title to the histogram
-        plt.xlabel('Number of Markets Fulfilled')
-        plt.ylabel('Number of Warehouses')
-        plt.title('Histogram of Markets Fulfilled by Warehouse')
-
-        # Show the histogram
-        plt.show()
-        st.pyplot(plt)
+        st.bar_chart(results,x = results["Warehouse"], y=results["Demand Fulfilled"])
         
         results = results.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
