@@ -423,15 +423,15 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         if LpStatus[prob_3.status]=="Infeasible":
             html_str = f"""
                         <style>
-                        p.a {{
+                        p.b {{
                           font: bold {20}px Source Sans Pro;
                         }}
-                        p.a {{
+                        p.b {{
                           color: red;
                         }}
                         </style>
-                        <p class="a">Status:{LpStatus[prob_3.status]}</p>
-                        <p class="a">At current capacity the solution is infeasible</p>
+                        <p class="b">Status:{LpStatus[prob_3.status]}</p>
+                        <p class="b">At current capacity the solution is infeasible</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
