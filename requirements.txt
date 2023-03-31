@@ -2,4 +2,4 @@ pulp ==2.7.0
 matplotlib ==3.5.2
 openpyxl
 st-annotated-text
-cv2
+OpenCV
