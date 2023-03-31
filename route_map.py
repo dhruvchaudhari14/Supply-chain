@@ -486,7 +486,9 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         p.a {{
                           font: bold {40}px Times New Roman;
                         }}
-                        p.a    {color: red;}
+                        p.a {{
+                          color: red;
+                        }}
                         </style>
                         <p class="a">{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
                         """
