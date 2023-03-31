@@ -490,7 +490,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                           color: red;
                         }}
                         </style>
-                        <p class="a">Capacity short fall is '**{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))**'}%</p>
+                        <p class="a">Capacity short fall is '**{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%**'</p>
                         """
 
             st.write("Capacity Shortfall")
