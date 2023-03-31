@@ -431,11 +431,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
-        else:
-            st.write("Status: ",LpStatus[prob_3.status])
-            
-
-        if LpStatus[prob_3.status]=="Infeasible":
+        elif LpStatus[prob_3.status]=="Infeasible":
             html_str = f"""
                         <style>
                         p.b {{
@@ -450,6 +446,11 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
+        else:
+            st.write("Status: ",LpStatus[prob_3.status])
+            
+
+        
             
  
 
