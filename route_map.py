@@ -305,6 +305,7 @@ if tab == "Optimal Solution without capacity constraints.":
                     print("x_{}{} = {}".format(i, j, x[(i,j)].value()))
         print("Total cost:", pulp.value(prob.objective))
         data= []
+        market_count = {}
         for i in warehouses:
             for j in markets:
                 if x[(i,j)].value() != 0:
