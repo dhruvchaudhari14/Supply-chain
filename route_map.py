@@ -311,6 +311,21 @@ if tab == "Optimal Solution without capacity constraints.":
                     data.append([i, j, x[(i,j)].value()])
         results = pd.DataFrame(data, columns=['Warehouse', 'Route', 'Demand Fulfilled'])
         results['Demand Fulfilled'] = results['Demand Fulfilled'].round(0)
+        if LpStatus[prob.status]=="Optimal":
+            html_str = f"""
+                        <style>
+                        p.d {{
+                          font: bold {20}px Source Sans Pro;
+                        }}
+                        p.d {{
+                          color: green;
+                        }}
+                        </style>
+                        <p class="d">Status : {LpStatus[prob.status]}</p>
+                        <p class="d">Total cost : {pulp.value(prob.objective)}</p>
+                        """
+
+            st.markdown(html_str, unsafe_allow_html=True)
         st.write("Optimal Cost required: ",round(pulp.value(prob.objective),2))
         st.write("Status: ",LpStatus[prob.status])
         st.header("Optimal Warehouse to Market mapping")
@@ -427,7 +442,8 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                           color: green;
                         }}
                         </style>
-                        <p class="c">Status:{LpStatus[prob_3.status]}</p>
+                        <p class="c">Status : {LpStatus[prob_3.status]}</p>
+                        <p class="c">Total cost : {pulp.value(prob_3.objective)}</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
@@ -441,13 +457,13 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                           color: red;
                         }}
                         </style>
-                        <p class="b">Status:{LpStatus[prob_3.status]}</p>
+                        <p class="b">Status : {LpStatus[prob_3.status]}</p>
                         <p class="b">At current capacity the solution is infeasible.</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
         else:
-            st.write("Status: ",LpStatus[prob_3.status])
+            st.write("Status : ",LpStatus[prob_3.status])
             
 
         
