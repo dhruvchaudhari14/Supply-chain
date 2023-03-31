@@ -482,7 +482,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[1].write(df_3)
         if LpStatus[prob_3.status]=="Infeasible":
             
-            st.write("The Capacity Shortfall (%) is :", (df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100,"%")
+            st.write("The Capacity Shortfall (%) is :", int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),)
             
 
         results_3= results_3.to_csv(index=False).encode("utf-8")
