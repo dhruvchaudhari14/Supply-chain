@@ -484,7 +484,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             html_str = f"""
                         <style>
                         p.a {{
-                          font: bold {35}px Courier;
+                          font: bold {35}px Source Sans Pro;
                         }}
                         p.a {{
                           color: red;
