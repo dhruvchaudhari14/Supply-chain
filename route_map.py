@@ -416,7 +416,6 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
 
 
         prob_3.solve()
-        st.write("Status: ",LpStatus[prob_3.status])
         #  Print the optimal solution
         if LpStatus[prob_3.status]=="Optimal":
             html_str = f"""
