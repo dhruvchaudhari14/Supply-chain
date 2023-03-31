@@ -509,7 +509,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
-        if LpStatus[prob_3.status]=="Optimal":
+        if LpStatus[prob_3.status]=="Infeasible":
             html_str = f"""
                         <style>
                         p.c {{
@@ -519,7 +519,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                           color: red;
                         }}
                         </style>
-                        <p class="c">Status:Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
+                        <p class="c">Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
