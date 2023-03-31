@@ -359,7 +359,7 @@ if tab == "Optimal Solution without capacity constraints.":
         # Create DataFrame from results
         df = pd.DataFrame(results_1)
         
-        results_count_1 = pd.DataFrame.from_dict(market_count, orient='index', columns=['Markets Fulfilled'])
+        results_count_1 = pd.DataFrame.from_dict(market_count, columns=['Markets Fulfilled'])
 
         # add results_2 DataFrame as a new column to df DataFrame
         df = pd.concat([df, results_count_1], axis=1)
