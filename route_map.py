@@ -446,7 +446,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                         }}
                         </style>
                         <p class="b">Status:{LpStatus[prob_3.status]}</p>
-                        <p class="b">At current capacity the solution is infeasible</p>
+                        <p class="b">At current capacity the solution is infeasible with capacity shortfall of {abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}% </p>
                         """
 
             st.markdown(html_str, unsafe_allow_html=True)
@@ -509,21 +509,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
-        if LpStatus[prob_3.status]=="Infeasible":
-            html_str = f"""
-                        <style>
-                        p.a {{
-                          font: bold {35}px Source Sans Pro;
-                        }}
-                        p.a {{
-                          color: red;
-                        }}
-                        </style>
-                        <p class="a">Capacity shortfall : {abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
-                        """
 
-            st.markdown(html_str, unsafe_allow_html=True)
-            
 
         results_3= results_3.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
