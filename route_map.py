@@ -480,15 +480,9 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
-        if LpStatus[prob_3.status]=="Infeasible":
-            cols_2[1].write("The Capacity Shortfall (%) is :", (df_3['Remaining Capacity']/demand["Demand"].sum()))
+        cols_2[1].write("The Capacity Shortfall (%) is :", (df_3['Remaining Capacity']/demand["Demand"].sum()))
             
-        
-        
-        
 
-            
-            
         results_3= results_3.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
         st.download_button('Download', results_3, 'Iteration_3_results.csv', 'csv/txt')
