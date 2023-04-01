@@ -553,6 +553,18 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         results_3= results_3.to_csv(index=False).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
         st.download_button('Download', results_3, 'Iteration_3_results.csv', 'csv/txt')
+        
+        
+        with pd.ExcelWriter(output) as writer:
+            
+            results_3.to_excel(writer, sheet_name='Op_sub', index=False)
+            df_3.to_excel(writer, sheet_name='Additional Data', index=False)
+        st.download_button(
+        label='Download Excel file',
+        data=output.read(),
+        file_name='data.xlsx',
+        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
