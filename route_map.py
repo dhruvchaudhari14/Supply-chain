@@ -557,10 +557,9 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         output = io.BytesIO()
         
         with pd.ExcelWriter(output) as writer:
-            
             results_3.to_excel(writer, sheet_name='Op_sub', index=False)
             df_3.to_excel(writer, sheet_name='Additional Data', index=False)
-        output.seek(0)
+        
         st.download_button(
         label='Download Excel file',
         data=output.read(),
