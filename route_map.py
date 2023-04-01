@@ -349,11 +349,13 @@ if tab == "Optimal Solution without capacity constraints.":
             total_shipped = sum(x[(i,j)].value() for j in markets)
             capacity_left = float(cap.loc[i] - total_shipped)
             percentage_left = 100 * capacity_left / cap.loc[i]
+            num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
             results_1.append({
                 'Warehouse': i,
                 'Capacity utilized': int(total_shipped),
                 'Remaining Capacity': int(capacity_left),
-                'Remaining Capacity(%)': float(round(percentage_left, 2))
+                'Remaining Capacity(%)': float(round(percentage_left, 2)),
+                'Markets Fulfilled': int(num_markets_fulfilled)
             })
 
         # Create DataFrame from results
@@ -503,11 +505,17 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             total_shipped = sum(x[(i,j)].value() for j in markets)
             capacity_left = float(cap.loc[i] - total_shipped)
             percentage_left = 100 * capacity_left / cap.loc[i]
+            if LpStatus[prob_3.status]=="Optimal":
+                num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
+            elif LpStatus[prob_3.status]=="Infeasible":
+                num_markets_fulfilled = sum(x[(i,j)].value() >= 0 for j in markets)
+                
             results_33.append({
                 'Warehouse': i,
                 'Capacity utilized': int(round(total_shipped, 0)),
                 'Remaining Capacity': int(capacity_left),
                 'Remaining Capacity(%)': float(round(percentage_left, 2)),
+                'Markets Fulfilled': int(num_markets_fulfilled)
             })
 
 
