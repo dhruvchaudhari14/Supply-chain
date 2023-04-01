@@ -505,10 +505,8 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             total_shipped = sum(x[(i,j)].value() for j in markets)
             capacity_left = float(cap.loc[i] - total_shipped)
             percentage_left = 100 * capacity_left / cap.loc[i]
-            if LpStatus[prob_3.status]=="Optimal":
-                num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
-            if LpStatus[prob_3.status]=="Infeasible":
-                num_markets_fulfilled = sum(x[(i,j)].value() >= 0 for j in markets)
+            num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
+
                 
             results_33.append({
                 'Warehouse': i,
