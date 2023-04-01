@@ -555,11 +555,6 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         st.download_button('Download', results_3, 'Iteration_3_results.csv', 'csv/txt')
         
         
-        if st.download_button('Download','xlsx'):
-            with pd.ExcelWriter('Data_route_mapping') as writer:
-                results_3.to_excel(writer, sheet_name='Op_sub', index=False)
-                df_3.to_excel(writer, sheet_name='Additional Data', index=False)
-        
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
