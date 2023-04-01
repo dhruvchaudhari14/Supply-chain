@@ -508,7 +508,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             if LpStatus[prob_3.status]=="Optimal":
                 num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
             if LpStatus[prob_3.status]=="Infeasible":
-                num_markets_fulfilled = sum(x[(i,j)].value() <= 0 for j in markets)
+                num_markets_fulfilled = sum(x[(i,j)].value() >= 0 for j in markets)
                 
             results_33.append({
                 'Warehouse': i,
@@ -545,7 +545,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
                               color: red;
                             }}
                             </style>
-                            <p class="c">Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
+                            <p class="c">Capcity Shortfall : {abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
                             """
 
                 st.markdown(html_str, unsafe_allow_html=True)
