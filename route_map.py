@@ -507,7 +507,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
             percentage_left = 100 * capacity_left / cap.loc[i]
             if LpStatus[prob_3.status]=="Optimal":
                 num_markets_fulfilled = sum(x[(i,j)].value() != 0 for j in markets)
-            elif LpStatus[prob_3.status]=="Infeasible":
+            if LpStatus[prob_3.status]=="Infeasible":
                 num_markets_fulfilled = sum(x[(i,j)].value() <= 0 for j in markets)
                 
             results_33.append({
@@ -533,20 +533,22 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         cols_2[0].write(results_3)
         cols_2[1].write("Additional Data")
         cols_2[1].write(df_3)
-        if LpStatus[prob_3.status]=="Infeasible":
-            html_str = f"""
-                        <style>
-                        p.c {{
-                          font: bold {20}px Source Sans Pro;
-                        }}
-                        p.c {{
-                          color: red;
-                        }}
-                        </style>
-                        <p class="c">Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
-                        """
+        with cols_2[1]:
+            
+            if LpStatus[prob_3.status]=="Infeasible":
+                html_str = f"""
+                            <style>
+                            p.c {{
+                              font: bold {20}px Source Sans Pro;
+                            }}
+                            p.c {{
+                              color: red;
+                            }}
+                            </style>
+                            <p class="c">Capcity Shortfall :{abs(round(int((df_3['Remaining Capacity'].sum()/demand["Demand"].sum())*100),2))}%</p>
+                            """
 
-            st.markdown(html_str, unsafe_allow_html=True)
+                st.markdown(html_str, unsafe_allow_html=True)
         
 
 
