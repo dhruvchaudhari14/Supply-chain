@@ -555,7 +555,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
         results_3= results_3.to_csv(index=False).encode("utf-8")
         df_3 = df_3.to_csv(index = True).encode("utf-8")
         st.write("Click to download results from the above iteration in csv format")
-        st.download_button('Download', results_3, 'Iteration_3_Network_map.csv', 'csv/txt')
+        st.download_button('Download the Network Map', results_3, 'Iteration_3_Network_map.csv', 'csv/txt')
         st.download_button('Download the additional data',df_3,'Iteration_3_additional_data.csv','csv/txt')
         
         
