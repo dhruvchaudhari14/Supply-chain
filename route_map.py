@@ -393,7 +393,7 @@ if tab == "Optimal/Sub-Optimal Solution with capacity constraints.":
     show_fixed_data_1 = st.checkbox("Consider Fixed Warehouse-Market Link",key = "fixed_data_f_m_c_2")
     st.write("By using this respective markets will only get demand fulfilled by a fixed warehouse.") 
 
-    run_code = st.checkbox("Run Iteration 3: Demand from a market is fulfilled by only one warehouse with capacity constraints")
+    run_code = st.checkbox("Run Iteration 2: Demand from a market is fulfilled by only one warehouse with capacity constraints")
 
     if run_code:
 
